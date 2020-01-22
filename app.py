@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 from stories import story
 
@@ -15,5 +15,8 @@ def show_form():
     return render_template('index.html', prompts=word_list)
 
 
-# @app.route('/story')
-# def show_story():
+@app.route('/story')
+def show_story():
+    inputs = request.args
+    story_text = story.generate(inputs)
+    return render_template('story.html', story_text = story_text)
