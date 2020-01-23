@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Madlibs</title>
-</head>
-<body>
-    <h1>Madlibs</h1>
-    <form action="/story">
-        {% for word in prompts%}
-            <p>{{word}}: <input type="text" name="{{word}}"></p>
-        {% endfor %}
-        <button>Submit</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} Choose a Story {% endblock %}
+
+{% block content %} 
+<h1>Pick a Story!</h1>
+<form action="/inputs">
+    <select name="story_choice">
+    {% for story in story_list %}
+        <option value="{{story.title}}">{{story.title}}</option>
+    {% endfor %}
+    </select>
+    <button>Choose!</button>
+</form>
+{% endblock %}

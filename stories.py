@@ -18,11 +18,12 @@ class Story:
         'I love to eat a good mango.'
     """
 
-    def __init__(self, words, text):
+    def __init__(self, words, text, title):
         """Create story with words and template text."""
 
         self.prompts = words
         self.template = text
+        self.title = title
 
     def generate(self, answers):
         """Substitute answers into text."""
@@ -38,8 +39,29 @@ class Story:
 # Here's a story to get you started
 
 
-story = Story(
+trad_fairytale = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
-       large {adjective} {noun}. It loved to {verb} {plural_noun}."""
+       large {adjective} {noun}. It loved to {verb} {plural_noun}.""",
+       "Traditional"
 )
+modern_fairytale = Story(
+    ["place", "noun", "verb", "adjective", "plural_noun"],
+    """Last year in {place}, there lived a
+       large {adjective} {noun}. It loved to {verb} {plural_noun}.""",
+       "Modern"
+)
+punk_fairytale = Story(
+    ["place", "noun", "verb", "adjective", "plural_noun"],
+    """One weekend at a {place}, there danced a
+       spiky {adjective} {noun}. It loved to {verb} {plural_noun}.""",
+       "Punk"
+)
+sad_fairytale = Story(
+    ["place", "noun", "verb", "adjective", "plural_noun"],
+    """Once upon a time in a long-ago {place}, there died a
+       large {adjective} {noun}. It hated to {verb} {plural_noun}.""",
+       "Sad"
+)
+
+
